@@ -1,13 +1,17 @@
-{{ define "hero-body" }}
-<div class="container">
-  <article class="media">
-    <div class="media-content">
-      <h1 class="title">
-        Posts tagged with {{.Data.Term}}
-      </h1>
+{{ define "hero" }}
+<section class="hero is-small is-info is-fullwidth">
+  <div class="hero-body">
+    <div class="container">
+      <article class="media">
+        <div class="media-content">
+          <h1 class="title">
+            Posts tagged with {{.Data.Term}}
+          </h1>
+        </div>
+      </article>
     </div>
-  </article>
-</div>
+  </div>
+</section>
 {{ end }}
 
 {{ define "main" }}
