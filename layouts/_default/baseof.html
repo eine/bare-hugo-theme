@@ -11,10 +11,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
-    {{ if (eq .Page.Kind "taxonomy") }}
-    Posts tagged with
+    {{ $.Site.Title }}
+    {{ if .Title }}
+      |
+      {{ if (eq .Page.Kind "taxonomy") }}
+      Posts tagged with
+      {{ end }}
+      {{ .Title }}
     {{ end }}
-    {{ .Title }}
     {{ if (and $.Site.Params.includeAuthorInTitle (in (slice "page" "taxonomy") .Page.Kind)) }} | {{ $.Site.Params.author }} {{ end }}
   </title>
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
