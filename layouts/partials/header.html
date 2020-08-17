@@ -25,6 +25,12 @@
     </div>
 
     <div class="navbar-end">
+      {{ range $.Site.Menus.right }}
+      <a class="navbar-item {{ if $currentPage.IsMenuCurrent "main" . }}is-active{{ end }}" href="{{ .URL }}">
+        {{ .Name }}
+      </a>
+      {{ end }}
+
       {{ range $.Site.Params.social }}
       <a class="navbar-item" href="{{ .url }}" rel="noopener" target="_blank">
         <span class="icon">
