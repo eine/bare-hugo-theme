@@ -27,25 +27,21 @@
       {{ range $.Site.Params.social }}
       <a class="navbar-item" href="{{ .url }}" rel="noopener" target="_blank">
         <span class="icon">
-          {{ with (resources.Get (printf  "icons/svg/%s.svg" .icon))}}
-            <img alt="{{ . }}" src='{{ .Permalink }}'>
-          {{ else }}
-            {{errorf "Icon %v does not exist in the template directory. View that directory for all icons you can use" (printf  "icons/svg/%s.svg" .icon)}}
-          {{end}}
+          <i class="mdi mdi-{{ .icon }} mdi-18px"></i>
         </span>
       </a>
       {{ end }}
       {{ with $.Site.Params.email }}
       <a class="navbar-item" href="mailto:{{ . }}" target="_blank">
         <span class="icon">
-          <img alt="email" src='{{ (resources.Get "icons/svg/email.svg").Permalink }}'>
+          <i class="mdi mdi-email mdi-18px"></i>
         </span>
       </a>
       {{ end }}
       {{ with $.Site.Home.OutputFormats.Get "rss" -}}
       <a class="navbar-item" href="{{ .Permalink }}" target="_blank">
         <span class="icon">
-          <img alt="rss" src='{{ (resources.Get "icons/svg/rss.svg").Permalink }}'>
+          <i class="mdi mdi-rss mdi-18px"></i>
         </span>
       </a>
       {{ end }}
