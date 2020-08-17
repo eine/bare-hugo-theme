@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="section">
+  <div class="field is-grouped is-grouped-multiline" style="justify-content: center">
+    {{ range .Pages }}
+    <a class="control" href="{{ .Permalink }}">
+      <div class="tags has-addons are-medium">
+        <span class="tag is-link">{{ .Title }}</span>
+        <span class="tag is-link is-light">{{ len .Data.tag }}</span>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
