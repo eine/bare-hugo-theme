@@ -1,3 +1,8 @@
 {{ define "main" }}
-{{ partial "posts.html" (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+  {{ with .Content }}
+    <div class="container is-fluid is-small content">{{ . }}</div>
+  {{ end }}
+  {{ range (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+    {{ partial "entry.html" (dict "repoLink" site.Params.repoLink "page" .) }}
+  {{ end }}
 {{ end }}

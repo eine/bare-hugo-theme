@@ -1,0 +1,48 @@
+{{ with .page }}
+<div class="entry">
+  <div>
+    <a
+      title="See details"
+      href="{{ .Permalink }}"
+    ><i class="mdi mdi-magnify"></i></a>
+    {{ if isset .Params "ref" }}
+      <a href="{{ .Params.ref }}" class="title is-size-6">{{ .Title }}</a>
+    {{ else }}
+      <span class="title is-size-6">{{ .Title }}</span>
+    {{ end }}
+    <span>@{{ .Params.author }}</span>
+  </div>
+  <div class="is-7">
+    <a
+      title="Go to GitHub Issue"
+      href="{{ $.repoLink }}/issues/{{ .Params.issue }}">
+      #{{ .Params.issue }}
+      <i class="mdi mdi-thumb-up"></i> {{ .Params.karma }}
+      <i class="mdi mdi-comment-multiple"></i> {{ .Params.comments }}
+    </a>
+    ·
+    {{ .Date.Format "2006/01/02" }}
+    {{ if isset .Params "repo" }}
+      <a
+        title="Go to related repository"
+        href="https://github.com/{{ .Params.repo }}"
+      >
+        <i class="mdi mdi-github"></i>
+        {{ if isset .Params "stars" }}
+          {{ .Params.stars }}
+        {{ end }}
+        {{ .Params.repo }}
+      </a>
+    {{ end }}
+    {{ with (.GetTerms "tags") }}
+      ·
+      <i>tags:</i> {{ range $i, $e := . }}{{ if $i }}, {{ end }}<a href="{{ $e.Permalink }}">{{ $e.LinkTitle }}</a>{{ end }}
+    {{ end }}
+  </div>
+  <!--
+  <div class="content is-medium">
+    {{ .Content }}
+  </div>
+  -->
+</div>
+{{ end }}
