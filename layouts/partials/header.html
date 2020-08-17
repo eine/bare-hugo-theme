@@ -1,4 +1,4 @@
-<nav class="navbar is-transparent {{ if .Page.IsHome }}is-hidden-touch{{end}}" role="navigation" aria-label="main navigation">
+<nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{ $.Site.Home.Permalink }}">
       <figure class="image">
@@ -8,8 +8,14 @@
     <a class="navbar-item" href="{{ $.Site.Home.Permalink }}">
       <b>{{ $.Site.Title }}</b>
     </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
-  
+
   <div class="navbar-menu">
     <div class="navbar-start">
       {{ range .Site.Taxonomies.tags }}
@@ -22,7 +28,7 @@
       </a>
       {{ end }}
     </div>
-    
+
     <div class="navbar-end">
       {{ range $.Site.Params.social }}
       <a class="navbar-item" href="{{ .url }}" rel="noopener" target="_blank">
@@ -48,3 +54,12 @@
     </div>
   </div>
 </nav>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+$(document).ready(function() {
+  $(".navbar-burger").click(function() {
+    $(".navbar-burger").toggleClass("is-active");
+    $(".navbar-menu").toggleClass("is-active");
+  });
+});
+</script>
