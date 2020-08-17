@@ -39,8 +39,8 @@
     {{- partial "header.html" . -}}
   {{- end }}
   {{- block "hero" . }}{{- end }}
-  <section class="section">
-    <div class="container">
+  <section class="section" style="flex-grow: 1">
+    <div class="container is-fluid">
       {{- block "main" . }}{{- end }}
     </div>
   </section>
